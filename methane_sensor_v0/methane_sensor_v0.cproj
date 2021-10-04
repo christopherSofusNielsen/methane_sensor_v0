@@ -72,6 +72,10 @@
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <ToolchainSettings>
       <com.microchip.xc8>
+  <com.microchip.xc8.common.outputfiles.hex>True</com.microchip.xc8.common.outputfiles.hex>
+  <com.microchip.xc8.common.outputfiles.eep>True</com.microchip.xc8.common.outputfiles.eep>
+  <com.microchip.xc8.common.outputfiles.usersignatures>False</com.microchip.xc8.common.outputfiles.usersignatures>
+  <com.microchip.xc8.common.outputfiles.lss>True</com.microchip.xc8.common.outputfiles.lss>
   <com.microchip.xc8.compiler.general.ChangeDefaultCharTypeUnsigned>True</com.microchip.xc8.compiler.general.ChangeDefaultCharTypeUnsigned>
   <com.microchip.xc8.compiler.general.ChangeDefaultBitFieldUnsigned>True</com.microchip.xc8.compiler.general.ChangeDefaultBitFieldUnsigned>
   <com.microchip.xc8.compiler.symbols.DefSymbols>
@@ -90,6 +94,7 @@
       <Value>libm</Value>
     </ListValues>
   </com.microchip.xc8.linker.libraries.Libraries>
+  <com.microchip.xc8.linker.miscellaneous.LinkerFlags>-gc-sections</com.microchip.xc8.linker.miscellaneous.LinkerFlags>
   <com.microchip.xc8.assembler.debugging.DebugLevel>Default (-Wa,-g)</com.microchip.xc8.assembler.debugging.DebugLevel>
 </com.microchip.xc8>
     </ToolchainSettings>
@@ -99,6 +104,12 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="HAL\UART0\UART0_HAL.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\UART1\UART1_HAL.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\UART1\UART1_HAL.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="main.c">
@@ -128,6 +139,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="HAL" />
+    <Folder Include="HAL\UART1" />
     <Folder Include="HAL\UART0" />
     <Folder Include="MODULES" />
     <Folder Include="MODULES\lora_module" />
