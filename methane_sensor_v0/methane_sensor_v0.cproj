@@ -26,7 +26,7 @@
     <OverrideVtorValue>exception_table</OverrideVtorValue>
     <BootSegment>2</BootSegment>
     <ResetRule>0</ResetRule>
-    <eraseonlaunchrule>0</eraseonlaunchrule>
+    <eraseonlaunchrule>1</eraseonlaunchrule>
     <EraseKey />
     <avrtool>com.atmel.avrdbg.tool.avrdragon</avrtool>
     <avrtoolserialnumber>00A200051040</avrtoolserialnumber>
@@ -36,13 +36,13 @@
         <InterfaceProperties>
           <IspClock>125000</IspClock>
         </InterfaceProperties>
-        <InterfaceName>ISP</InterfaceName>
+        <InterfaceName>debugWIRE</InterfaceName>
       </ToolOptions>
       <ToolType>com.atmel.avrdbg.tool.avrdragon</ToolType>
       <ToolNumber>00A200051040</ToolNumber>
       <ToolName>AVR Dragon</ToolName>
     </com_atmel_avrdbg_tool_avrdragon>
-    <avrtoolinterface>ISP</avrtoolinterface>
+    <avrtoolinterface>debugWIRE</avrtoolinterface>
     <avrtoolinterfaceclock>125000</avrtoolinterfaceclock>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
@@ -95,9 +95,46 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="HAL\UART0\UART0_HAL.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\UART0\UART0_HAL.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="main.c">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="MODULES\lora_module\lora_module.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MODULES\lora_module\lora_module.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MODULES\lora_module\RN2483_protocol\RN2483_protocol.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MODULES\lora_module\RN2483_protocol\RN2483_protocol.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="TEST\lora-module\test_lora_module.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="TEST\lora-module\test_lora_module.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="util\bit_operators.h">
+      <SubType>compile</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="HAL" />
+    <Folder Include="HAL\UART0" />
+    <Folder Include="MODULES" />
+    <Folder Include="MODULES\lora_module" />
+    <Folder Include="MODULES\lora_module\RN2483_protocol" />
+    <Folder Include="TEST" />
+    <Folder Include="TEST\lora-module" />
+    <Folder Include="util" />
   </ItemGroup>
   <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
 </Project>
