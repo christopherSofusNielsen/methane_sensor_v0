@@ -18,6 +18,7 @@
 
 //Others
 #define CMD_END_CHARS "\r\n"
+#define RN2483 "RN2483"
 
 //Status codes
 #define OK "ok"

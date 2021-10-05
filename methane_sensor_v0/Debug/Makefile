@@ -34,10 +34,13 @@ LINKER_SCRIPT_DEP:=
 # Every subdirectory with source files must be described here
 SUBDIRS :=  \
 ../HAL \
+../HAL/RN2483 \
 ../HAL/UART1 \
 ../HAL/UART0 \
 ../MODULES \
 ../MODULES/lora_module \
+../MODULES/lora_module/join_network \
+../MODULES/lora_module/util \
 ../MODULES/lora_module/RN2483_protocol \
 ../TEST \
 ../TEST/lora-module \
@@ -46,11 +49,14 @@ SUBDIRS :=  \
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
+../HAL/RN2483/RN2483_HAL.c \
 ../HAL/UART0/UART0_HAL.c \
 ../HAL/UART1/UART1_HAL.c \
 ../main.c \
+../MODULES/lora_module/join_network/join_network.c \
 ../MODULES/lora_module/lora_module.c \
 ../MODULES/lora_module/RN2483_protocol/RN2483_protocol.c \
+../MODULES/lora_module/util/util.c \
 ../TEST/lora-module/test_lora_module.c
 
 
@@ -61,35 +67,47 @@ ASM_SRCS +=
 
 
 OBJS +=  \
+HAL/RN2483/RN2483_HAL.o \
 HAL/UART0/UART0_HAL.o \
 HAL/UART1/UART1_HAL.o \
 main.o \
+MODULES/lora_module/join_network/join_network.o \
 MODULES/lora_module/lora_module.o \
 MODULES/lora_module/RN2483_protocol/RN2483_protocol.o \
+MODULES/lora_module/util/util.o \
 TEST/lora-module/test_lora_module.o
 
 OBJS_AS_ARGS +=  \
+HAL/RN2483/RN2483_HAL.o \
 HAL/UART0/UART0_HAL.o \
 HAL/UART1/UART1_HAL.o \
 main.o \
+MODULES/lora_module/join_network/join_network.o \
 MODULES/lora_module/lora_module.o \
 MODULES/lora_module/RN2483_protocol/RN2483_protocol.o \
+MODULES/lora_module/util/util.o \
 TEST/lora-module/test_lora_module.o
 
 C_DEPS +=  \
+HAL/RN2483/RN2483_HAL.d \
 HAL/UART0/UART0_HAL.d \
 HAL/UART1/UART1_HAL.d \
 main.d \
+MODULES/lora_module/join_network/join_network.d \
 MODULES/lora_module/lora_module.d \
 MODULES/lora_module/RN2483_protocol/RN2483_protocol.d \
+MODULES/lora_module/util/util.d \
 TEST/lora-module/test_lora_module.d
 
 C_DEPS_AS_ARGS +=  \
+HAL/RN2483/RN2483_HAL.d \
 HAL/UART0/UART0_HAL.d \
 HAL/UART1/UART1_HAL.d \
 main.d \
+MODULES/lora_module/join_network/join_network.d \
 MODULES/lora_module/lora_module.d \
 MODULES/lora_module/RN2483_protocol/RN2483_protocol.d \
+MODULES/lora_module/util/util.d \
 TEST/lora-module/test_lora_module.d
 
 OUTPUT_FILE_PATH +=methane_sensor_v0.elf
@@ -106,6 +124,13 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+HAL/RN2483/RN2483_HAL.o: ../HAL/RN2483/RN2483_HAL.c
+	@echo Building file: $<
+	@echo Invoking: XC8 C Compiler : 2.31
+	$(QUOTE)C:\Program Files\Microchip\xc8\v2.31\bin\xc8-cc.exe$(QUOTE)  -mcpu=ATmega328PB  -mdfp="C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\xc8"  -c -x c -funsigned-char -funsigned-bitfields -mext=cci -D__ATmega328PB__ -DDEBUG  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
 HAL/UART0/UART0_HAL.o: ../HAL/UART0/UART0_HAL.c
 	@echo Building file: $<
 	@echo Invoking: XC8 C Compiler : 2.31
@@ -127,6 +152,13 @@ HAL/UART1/UART1_HAL.o: ../HAL/UART1/UART1_HAL.c
 	@echo Finished building: $<
 	
 
+MODULES/lora_module/join_network/join_network.o: ../MODULES/lora_module/join_network/join_network.c
+	@echo Building file: $<
+	@echo Invoking: XC8 C Compiler : 2.31
+	$(QUOTE)C:\Program Files\Microchip\xc8\v2.31\bin\xc8-cc.exe$(QUOTE)  -mcpu=ATmega328PB  -mdfp="C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\xc8"  -c -x c -funsigned-char -funsigned-bitfields -mext=cci -D__ATmega328PB__ -DDEBUG  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
 MODULES/lora_module/lora_module.o: ../MODULES/lora_module/lora_module.c
 	@echo Building file: $<
 	@echo Invoking: XC8 C Compiler : 2.31
@@ -135,6 +167,13 @@ MODULES/lora_module/lora_module.o: ../MODULES/lora_module/lora_module.c
 	
 
 MODULES/lora_module/RN2483_protocol/RN2483_protocol.o: ../MODULES/lora_module/RN2483_protocol/RN2483_protocol.c
+	@echo Building file: $<
+	@echo Invoking: XC8 C Compiler : 2.31
+	$(QUOTE)C:\Program Files\Microchip\xc8\v2.31\bin\xc8-cc.exe$(QUOTE)  -mcpu=ATmega328PB  -mdfp="C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\xc8"  -c -x c -funsigned-char -funsigned-bitfields -mext=cci -D__ATmega328PB__ -DDEBUG  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+MODULES/lora_module/util/util.o: ../MODULES/lora_module/util/util.c
 	@echo Building file: $<
 	@echo Invoking: XC8 C Compiler : 2.31
 	$(QUOTE)C:\Program Files\Microchip\xc8\v2.31\bin\xc8-cc.exe$(QUOTE)  -mcpu=ATmega328PB  -mdfp="C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\xc8"  -c -x c -funsigned-char -funsigned-bitfields -mext=cci -D__ATmega328PB__ -DDEBUG  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

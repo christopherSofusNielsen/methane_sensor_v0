@@ -18,6 +18,8 @@ uint8_t rx_buffer[UART0_RX_BUFF_LENGTH];
 uint8_t rx_buffer_data_len=0;
 uint8_t rx_buffer_has_message=0;
 
+static void copy_buffer(uint8_t msg[]);
+
 void uart0_hal_init(){
 	set_bit(UCSR0B, 4); //Enable Rx
 	set_bit(UCSR0B, 3); //Enable Tx
@@ -46,17 +48,32 @@ bool uart0_hal_message_ready(){
 }
 
 uint8_t uart0_hal_read_message(uint8_t msg[]){
-	for (uint8_t i=0; i<rx_buffer_data_len-2; i++)
-	{
-		msg[i]=rx_buffer[i];
-	}
+	copy_buffer(msg);
+	uint8_t len= rx_buffer_data_len-2;
 	uart0_hal_clear_rx_buffer();
-	return rx_buffer_data_len-2;
+	return len;
+}
+
+
+
+uint8_t uart0_hal_read_message_as_str(uint8_t msg[]){
+	copy_buffer(msg);
+	uint8_t len= rx_buffer_data_len-2;
+	msg[len]='\0';
+	uart0_hal_clear_rx_buffer();
+	return len;
 }
 
 void uart0_hal_clear_rx_buffer(){
 	rx_buffer_has_message=0;
 	rx_buffer_data_len=0;
+}
+
+static void copy_buffer(uint8_t msg[]){
+	for (uint8_t i=0; i<rx_buffer_data_len-2; i++)
+	{
+		msg[i]=rx_buffer[i];
+	}
 }
 
 
@@ -81,7 +98,12 @@ ISR(USART0_RX_vect){
 	if(rx_buffer_has_message==0 && rx_buffer_data_len<UART0_RX_BUFF_LENGTH){
 		rx_buffer[rx_buffer_data_len++]=UDR0;
 	}
+	if(rx_buffer_data_len>2 && rx_buffer[rx_buffer_data_len-1]==UART0_END_CHAR_1 && rx_buffer[rx_buffer_data_len-2]==UART0_END_CHAR_2){
+		rx_buffer_has_message=1;
+	}
+	/*
 	if(rx_buffer[rx_buffer_data_len-1]==UART0_END_CHAR_1 && rx_buffer[rx_buffer_data_len-2]==UART0_END_CHAR_2){
 		rx_buffer_has_message=1;
 	}
+	*/
 }
