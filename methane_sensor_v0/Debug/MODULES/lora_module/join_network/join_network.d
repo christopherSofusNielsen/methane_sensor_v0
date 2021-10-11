@@ -24,7 +24,10 @@ MODULES/lora_module/join_network/join_network.d \
  c:\program\ files\microchip\xc8\v2.31\avr\avr\include\avr\version.h \
  c:\program\ files\microchip\xc8\v2.31\avr\avr\include\avr\fuse.h \
  c:\program\ files\microchip\xc8\v2.31\avr\avr\include\avr\lock.h \
- ../MODULES/lora_module/join_network/../RN2483_protocol/RN2483_protocol.h
+ ../MODULES/lora_module/join_network/../RN2483_protocol/RN2483_protocol.h \
+ ../MODULES/lora_module/join_network/../../../HAL/UART0/UART0_HAL.h \
+ c:\program\ files\microchip\xc8\v2.31\avr\lib\gcc\avr\5.4.0\include\stdbool.h \
+ ../MODULES/lora_module/join_network/../util/util.h
 
 c:\program\ files\microchip\xc8\v2.31\avr\avr\include\string.h:
 
@@ -73,3 +76,9 @@ c:\program\ files\microchip\xc8\v2.31\avr\avr\include\avr\fuse.h:
 c:\program\ files\microchip\xc8\v2.31\avr\avr\include\avr\lock.h:
 
 ../MODULES/lora_module/join_network/../RN2483_protocol/RN2483_protocol.h:
+
+../MODULES/lora_module/join_network/../../../HAL/UART0/UART0_HAL.h:
+
+c:\program\ files\microchip\xc8\v2.31\avr\lib\gcc\avr\5.4.0\include\stdbool.h:
+
+../MODULES/lora_module/join_network/../util/util.h:

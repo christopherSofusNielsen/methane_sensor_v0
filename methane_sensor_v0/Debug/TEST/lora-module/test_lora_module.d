@@ -19,10 +19,8 @@ TEST/lora-module/test_lora_module.d TEST/lora-module/test_lora_module.o: \
  c:\program\ files\microchip\xc8\v2.31\avr\avr\include\avr\fuse.h \
  c:\program\ files\microchip\xc8\v2.31\avr\avr\include\avr\lock.h \
  c:\program\ files\microchip\xc8\v2.31\avr\lib\gcc\avr\5.4.0\include\stdbool.h \
- ../TEST/lora-module/../../MODULES/lora_module/join_network/join_network.h \
- ../TEST/lora-module/../../MODULES/lora_module/join_network/../lora_module.h \
- ../TEST/lora-module/../../MODULES/lora_module/lora_module.h \
- ../TEST/lora-module/../../HAL/RN2483/RN2483_HAL.h
+ ../TEST/lora-module/../../HAL/RN2483/RN2483_HAL.h \
+ ../TEST/lora-module/../../MODULES/lora_module/lora_module.h
 
 c:\program\ files\microchip\xc8\v2.31\avr\avr\include\util\delay.h:
 
@@ -62,10 +60,6 @@ c:\program\ files\microchip\xc8\v2.31\avr\avr\include\avr\lock.h:
 
 c:\program\ files\microchip\xc8\v2.31\avr\lib\gcc\avr\5.4.0\include\stdbool.h:
 
-../TEST/lora-module/../../MODULES/lora_module/join_network/join_network.h:
-
-../TEST/lora-module/../../MODULES/lora_module/join_network/../lora_module.h:
+../TEST/lora-module/../../HAL/RN2483/RN2483_HAL.h:
 
 ../TEST/lora-module/../../MODULES/lora_module/lora_module.h:
-
-../TEST/lora-module/../../HAL/RN2483/RN2483_HAL.h:

@@ -26,11 +26,10 @@ typedef enum {
 	JN_JOIN_NETWORK_RES_2,
 	JN_JOIN_NETWORK_FAILED,
 	JN_JOIN_SUCCESS,
-	JN_TRY_AGAIN,
 	JN_JOIN_FATAL_ERROR
 }JN_STATES;
 
-LM_STATUS LM_join_network();
+LM_STATUS JN_join_network();
 
 
 

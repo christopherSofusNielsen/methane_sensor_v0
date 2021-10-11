@@ -56,15 +56,16 @@
 #define MAC_TX_CONFIRMED "mac tx cnf"
 #define MAC_JOIN_OTAA "mac join otaa"
 #define MAC_SAVE "mac save"
-#define SET_ADR_OFF "mac set adr off"
-#define SET_ADR_ON "mac set adr on"
+#define  SET_ADR "mac set adr"
+//#define SET_ADR_OFF "mac set adr off"
+//#define SET_ADR_ON "mac set adr on"
 
 
 //Functions
 void attach_ending(char buffer[]);
 int16_t cmd_with_ending(char buffer[], const char cmd[]);
 int16_t sys_sleep_cmd(char buffer[], uint32_t time);
-int16_t mac_set_parameter(char buffer[], const char *cmd, char *parameter);
+int16_t mac_set_parameter(char buffer[], const char *cmd, const char *parameter);
 int16_t mac_set_deveui(char buffer[], char *eui);
 int16_t mac_set_appeui(char buffer[], char *appeui);
 int16_t mac_set_appkey(char buffer[], char *appkey);

@@ -54,7 +54,7 @@ int16_t sys_sleep_cmd(char buffer[], uint32_t time)
  * Mac commands
 **************************************************************/
 
-int16_t mac_set_parameter(char buffer[], const char *cmd, char *parameter)
+int16_t mac_set_parameter(char buffer[], const char *cmd, const char *parameter)
 {
     sprintf(buffer, "%s %s", cmd, parameter);
     return strlen(buffer);
@@ -84,9 +84,9 @@ int16_t mac_set_appkey(char buffer[], char *appkey)
 
 int16_t mac_set_ADR(char buffer[], unsigned char state){
 	if(state==0){
-		return mac_set_parameter(buffer, SET_ADR_OFF, NULL);
+		return mac_set_parameter(buffer, SET_ADR, OFF);
 	}else{
-		return mac_set_parameter(buffer, SET_ADR_ON, NULL);
+		return mac_set_parameter(buffer, SET_ADR, ON);
 	}
 }
 
