@@ -22,6 +22,8 @@ typedef enum {
 
 LM_STATUS LM_join_network();
 LM_STATUS LM_send_uplink(uint8_t data[], uint8_t length);
+LM_STATUS LM_put_to_sleep();
+LM_STATUS LM_wake_up();
 
 
 

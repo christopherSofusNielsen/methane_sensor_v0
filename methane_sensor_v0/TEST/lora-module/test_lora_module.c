@@ -6,7 +6,7 @@
  */ 
 #define F_CPU 8000000UL	
 #include <util/delay.h>
-#include <stdio.h>
+
 #include "test_lora_module.h"
 #include "../../HAL/UART0/UART0_HAL.h"
 #include "../../HAL/RN2483/RN2483_HAL.h"
@@ -14,7 +14,9 @@
 
 void test_join_network();
 void test_send_uplink();
-void test_sprintf();
+void test_put_to_sleep();
+void test_wake_up();
+
 
 void test_lora_module_start(){
 	
@@ -23,17 +25,39 @@ void test_lora_module_start(){
 	
 	while(1){
 		//test_join_network();
-		test_send_uplink();
-		//test_sprintf();
+		//test_send_uplink();
+		//test_put_to_sleep();
+		test_wake_up();
 		_delay_ms(3000);
 	}
 }
 
-void test_sprintf(){
-	char s[100];
-	char s2[]="ABC";
-	sprintf(s, "%s ", (const char *)s2);
-	uart0_hal_send_message((uint8_t *)s, 3);
+void test_wake_up(){
+	LM_STATUS status=LM_wake_up();
+	if(status==LM_STATUS_SUCCESS){
+		char msg[]="OK";
+		uart0_hal_send_message((uint8_t*)msg, 3);
+		}else if(status==LM_STATUS_TRY_AGAIN){
+		char msg[]="TRY";
+		uart0_hal_send_message((uint8_t*)msg, 4);
+		}else{
+		char msg[]="FAIL";
+		uart0_hal_send_message((uint8_t*)msg, 5);
+	}
+}
+
+void test_put_to_sleep(){
+	LM_STATUS status=LM_put_to_sleep();
+	if(status==LM_STATUS_SUCCESS){
+		char msg[]="OK";
+		uart0_hal_send_message((uint8_t*)msg, 3);
+		}else if(status==LM_STATUS_TRY_AGAIN){
+		char msg[]="TRY";
+		uart0_hal_send_message((uint8_t*)msg, 4);
+		}else{
+		char msg[]="FAIL";
+		uart0_hal_send_message((uint8_t*)msg, 5);
+	}
 }
 
 void test_send_uplink(){

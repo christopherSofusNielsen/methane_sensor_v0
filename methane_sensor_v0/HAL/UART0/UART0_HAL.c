@@ -5,6 +5,7 @@
  *  Author: Mainframe
  */ 
 #include "UART0_HAL.h"
+#include <util/delay.h>
 #include <xc.h>
 #include "../../util/bit_operators.h"
 #include <avr/interrupt.h>
@@ -67,6 +68,18 @@ uint8_t uart0_hal_read_message_as_str(uint8_t msg[]){
 void uart0_hal_clear_rx_buffer(){
 	rx_buffer_has_message=0;
 	rx_buffer_data_len=0;
+}
+
+void uart0_hal_send_break(uint8_t followUpByte){
+	set_bit(DDRD, 1); //Set TX0 (PD1) as output
+	clear_bit(UCSR0B, 3); //Disable Tx
+	clear_bit(PORTD, 1); //pull PD1 low
+	_delay_ms(2); //Wait one ms
+	set_bit(UCSR0B, 3); //Enable Tx
+	
+	uint8_t data[1];
+	data[0]=followUpByte;
+	uart0_hal_send_message(data, 1);
 }
 
 static void copy_buffer(uint8_t msg[]){

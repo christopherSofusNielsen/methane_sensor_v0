@@ -18,6 +18,8 @@ MODULES\lora_module\RN2483_protocol\RN2483_protocol.c
 
 MODULES\lora_module\send_uplink\send_uplink.c
 
+MODULES\lora_module\sleep_controller\sleep_controller.c
+
 MODULES\lora_module\util\util.c
 
 TEST\lora-module\test_lora_module.c

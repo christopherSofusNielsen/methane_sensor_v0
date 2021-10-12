@@ -157,6 +157,12 @@
     <Compile Include="MODULES\lora_module\send_uplink\send_uplink.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="MODULES\lora_module\sleep_controller\sleep_controller.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MODULES\lora_module\sleep_controller\sleep_controller.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="MODULES\lora_module\util\util.c">
       <SubType>compile</SubType>
     </Compile>
@@ -181,6 +187,7 @@
     <Folder Include="MODULES" />
     <Folder Include="MODULES\lora_module" />
     <Folder Include="MODULES\lora_module\join_network" />
+    <Folder Include="MODULES\lora_module\sleep_controller" />
     <Folder Include="MODULES\lora_module\send_uplink" />
     <Folder Include="MODULES\lora_module\util" />
     <Folder Include="MODULES\lora_module\RN2483_protocol" />

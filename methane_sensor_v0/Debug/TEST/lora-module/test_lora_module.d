@@ -6,9 +6,6 @@ TEST/lora-module/test_lora_module.d TEST/lora-module/test_lora_module.o: \
  c:\program\ files\microchip\xc8\v2.31\avr\avr\include\stdint.h \
  c:\program\ files\microchip\xc8\v2.31\avr\avr\include\util\delay_basic.h \
  c:\program\ files\microchip\xc8\v2.31\avr\avr\include\math.h \
- c:\program\ files\microchip\xc8\v2.31\avr\avr\include\stdio.h \
- c:\program\ files\microchip\xc8\v2.31\avr\lib\gcc\avr\5.4.0\include\stdarg.h \
- c:\program\ files\microchip\xc8\v2.31\avr\lib\gcc\avr\5.4.0\include\stddef.h \
  ../TEST/lora-module/test_lora_module.h \
  ../TEST/lora-module/../../HAL/UART0/UART0_HAL.h \
  c:\program\ files\microchip\xc8\v2.31\avr\lib\gcc\avr\5.4.0\include\xc.h \
@@ -36,12 +33,6 @@ c:\program\ files\microchip\xc8\v2.31\avr\avr\include\stdint.h:
 c:\program\ files\microchip\xc8\v2.31\avr\avr\include\util\delay_basic.h:
 
 c:\program\ files\microchip\xc8\v2.31\avr\avr\include\math.h:
-
-c:\program\ files\microchip\xc8\v2.31\avr\avr\include\stdio.h:
-
-c:\program\ files\microchip\xc8\v2.31\avr\lib\gcc\avr\5.4.0\include\stdarg.h:
-
-c:\program\ files\microchip\xc8\v2.31\avr\lib\gcc\avr\5.4.0\include\stddef.h:
 
 ../TEST/lora-module/test_lora_module.h:
 
