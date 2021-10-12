@@ -8,18 +8,22 @@
 #include "RN2483_protocol.h"
 #include <stdio.h>
 #include <string.h>
+
 #include <xc.h>
 
-static void tohex(char *str, unsigned char data[], int bytes);
+static void tohex(char str[], const uint8_t data[], int bytes);
+
+
 
 /*************************************************************
  * Auxiliary - local
 **************************************************************/
 
-static void tohex(char *str, unsigned char data[], int bytes)
+static void tohex(char str[], const uint8_t data[], int bytes)
 {
-    for (int i = 0; i < bytes; i++)
+    for (int i = 0; i < bytes; i++){
         sprintf(str + i * 2, "%02x", data[i]);
+	}
 }
 
 /*************************************************************
@@ -90,19 +94,21 @@ int16_t mac_set_ADR(char buffer[], unsigned char state){
 	}
 }
 
-int16_t mac_tx_confirmed(char buffer[], unsigned int port, unsigned char data[], uint8_t bytes)
+int16_t mac_tx_confirmed(char buffer[], uint8_t port,  uint8_t data[], uint8_t bytes)
 {
-
+	char dataHex[MAX_PAYLOAD_SIZE_EU868 * 2 + 1];
+	
     if (port < PORT_MIN || port > PORT_MAX)
         return -1;
 
     if (bytes > MAX_PAYLOAD_SIZE_EU868 || bytes <= 0)
         return -1;
-
-    char dataHex[MAX_PAYLOAD_SIZE_EU868 * 2 + 1];
+	
+    
     tohex(dataHex, data, bytes);
 
-    sprintf(buffer, "%s %d %s", MAC_TX_CONFIRMED, port, dataHex);
-
+    sprintf(buffer, "%s %u %s", MAC_TX_CONFIRMED, port, (const char *)dataHex);
+    
+	
     return strlen(buffer);
 }

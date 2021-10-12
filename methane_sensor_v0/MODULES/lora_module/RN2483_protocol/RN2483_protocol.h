@@ -70,7 +70,7 @@ int16_t mac_set_deveui(char buffer[], char *eui);
 int16_t mac_set_appeui(char buffer[], char *appeui);
 int16_t mac_set_appkey(char buffer[], char *appkey);
 int16_t mac_set_ADR(char buffer[], unsigned char state);
-int16_t mac_tx_confirmed(char buffer[], unsigned int port, unsigned char data[], uint8_t bytes);
+int16_t mac_tx_confirmed(char buffer[], uint8_t port, uint8_t data[], uint8_t bytes);
 
 
 

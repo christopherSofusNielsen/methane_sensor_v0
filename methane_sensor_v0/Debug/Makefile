@@ -40,6 +40,7 @@ SUBDIRS :=  \
 ../MODULES \
 ../MODULES/lora_module \
 ../MODULES/lora_module/join_network \
+../MODULES/lora_module/send_uplink \
 ../MODULES/lora_module/util \
 ../MODULES/lora_module/RN2483_protocol \
 ../TEST \
@@ -56,6 +57,7 @@ C_SRCS +=  \
 ../MODULES/lora_module/join_network/join_network.c \
 ../MODULES/lora_module/lora_module.c \
 ../MODULES/lora_module/RN2483_protocol/RN2483_protocol.c \
+../MODULES/lora_module/send_uplink/send_uplink.c \
 ../MODULES/lora_module/util/util.c \
 ../TEST/lora-module/test_lora_module.c
 
@@ -74,6 +76,7 @@ main.o \
 MODULES/lora_module/join_network/join_network.o \
 MODULES/lora_module/lora_module.o \
 MODULES/lora_module/RN2483_protocol/RN2483_protocol.o \
+MODULES/lora_module/send_uplink/send_uplink.o \
 MODULES/lora_module/util/util.o \
 TEST/lora-module/test_lora_module.o
 
@@ -85,6 +88,7 @@ main.o \
 MODULES/lora_module/join_network/join_network.o \
 MODULES/lora_module/lora_module.o \
 MODULES/lora_module/RN2483_protocol/RN2483_protocol.o \
+MODULES/lora_module/send_uplink/send_uplink.o \
 MODULES/lora_module/util/util.o \
 TEST/lora-module/test_lora_module.o
 
@@ -96,6 +100,7 @@ main.d \
 MODULES/lora_module/join_network/join_network.d \
 MODULES/lora_module/lora_module.d \
 MODULES/lora_module/RN2483_protocol/RN2483_protocol.d \
+MODULES/lora_module/send_uplink/send_uplink.d \
 MODULES/lora_module/util/util.d \
 TEST/lora-module/test_lora_module.d
 
@@ -107,6 +112,7 @@ main.d \
 MODULES/lora_module/join_network/join_network.d \
 MODULES/lora_module/lora_module.d \
 MODULES/lora_module/RN2483_protocol/RN2483_protocol.d \
+MODULES/lora_module/send_uplink/send_uplink.d \
 MODULES/lora_module/util/util.d \
 TEST/lora-module/test_lora_module.d
 
@@ -167,6 +173,13 @@ MODULES/lora_module/lora_module.o: ../MODULES/lora_module/lora_module.c
 	
 
 MODULES/lora_module/RN2483_protocol/RN2483_protocol.o: ../MODULES/lora_module/RN2483_protocol/RN2483_protocol.c
+	@echo Building file: $<
+	@echo Invoking: XC8 C Compiler : 2.31
+	$(QUOTE)C:\Program Files\Microchip\xc8\v2.31\bin\xc8-cc.exe$(QUOTE)  -mcpu=ATmega328PB  -mdfp="C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\xc8"  -c -x c -funsigned-char -funsigned-bitfields -mext=cci -D__ATmega328PB__ -DDEBUG  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+MODULES/lora_module/send_uplink/send_uplink.o: ../MODULES/lora_module/send_uplink/send_uplink.c
 	@echo Building file: $<
 	@echo Invoking: XC8 C Compiler : 2.31
 	$(QUOTE)C:\Program Files\Microchip\xc8\v2.31\bin\xc8-cc.exe$(QUOTE)  -mcpu=ATmega328PB  -mdfp="C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\xc8"  -c -x c -funsigned-char -funsigned-bitfields -mext=cci -D__ATmega328PB__ -DDEBUG  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
