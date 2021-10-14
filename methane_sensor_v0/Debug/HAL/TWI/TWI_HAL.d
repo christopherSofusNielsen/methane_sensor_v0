@@ -1,4 +1,5 @@
-main.d main.o: .././main.c \
+HAL/TWI/TWI_HAL.d HAL/TWI/TWI_HAL.o: ../HAL/TWI/TWI_HAL.c \
+ ../HAL/TWI/TWI_HAL.h \
  c:\program\ files\microchip\xc8\v2.31\avr\lib\gcc\avr\5.4.0\include\xc.h \
  c:\program\ files\microchip\xc8\v2.31\avr\lib\gcc\avr\5.4.0\include\cci.h \
  c:\program\ files\microchip\xc8\v2.31\avr\avr\include\avr\io.h \
@@ -12,8 +13,9 @@ main.d main.o: .././main.c \
  c:\program\ files\microchip\xc8\v2.31\avr\avr\include\avr\version.h \
  c:\program\ files\microchip\xc8\v2.31\avr\avr\include\avr\fuse.h \
  c:\program\ files\microchip\xc8\v2.31\avr\avr\include\avr\lock.h \
- .././TEST/lora-module/test_lora_module.h \
- .././TEST/SCD_30_module/test_SCD30_module.h
+ ../HAL/TWI/../../util/bit_operators.h
+
+../HAL/TWI/TWI_HAL.h:
 
 c:\program\ files\microchip\xc8\v2.31\avr\lib\gcc\avr\5.4.0\include\xc.h:
 
@@ -41,6 +43,4 @@ c:\program\ files\microchip\xc8\v2.31\avr\avr\include\avr\fuse.h:
 
 c:\program\ files\microchip\xc8\v2.31\avr\avr\include\avr\lock.h:
 
-.././TEST/lora-module/test_lora_module.h:
-
-.././TEST/SCD_30_module/test_SCD30_module.h:
+../HAL/TWI/../../util/bit_operators.h:

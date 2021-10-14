@@ -34,6 +34,7 @@ LINKER_SCRIPT_DEP:=
 # Every subdirectory with source files must be described here
 SUBDIRS :=  \
 ../HAL \
+../HAL/TWI \
 ../HAL/RN2483 \
 ../HAL/UART1 \
 ../HAL/UART0 \
@@ -46,12 +47,14 @@ SUBDIRS :=  \
 ../MODULES/lora_module/RN2483_protocol \
 ../TEST \
 ../TEST/lora-module \
+../TEST/SCD_30_module \
 ../util
 
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
 ../HAL/RN2483/RN2483_HAL.c \
+../HAL/TWI/TWI_HAL.c \
 ../HAL/UART0/UART0_HAL.c \
 ../HAL/UART1/UART1_HAL.c \
 ../main.c \
@@ -61,7 +64,8 @@ C_SRCS +=  \
 ../MODULES/lora_module/send_uplink/send_uplink.c \
 ../MODULES/lora_module/sleep_controller/sleep_controller.c \
 ../MODULES/lora_module/util/util.c \
-../TEST/lora-module/test_lora_module.c
+../TEST/lora-module/test_lora_module.c \
+../TEST/SCD_30_module/test_SCD30_module.c
 
 
 PREPROCESSING_SRCS += 
@@ -72,6 +76,7 @@ ASM_SRCS +=
 
 OBJS +=  \
 HAL/RN2483/RN2483_HAL.o \
+HAL/TWI/TWI_HAL.o \
 HAL/UART0/UART0_HAL.o \
 HAL/UART1/UART1_HAL.o \
 main.o \
@@ -81,10 +86,12 @@ MODULES/lora_module/RN2483_protocol/RN2483_protocol.o \
 MODULES/lora_module/send_uplink/send_uplink.o \
 MODULES/lora_module/sleep_controller/sleep_controller.o \
 MODULES/lora_module/util/util.o \
-TEST/lora-module/test_lora_module.o
+TEST/lora-module/test_lora_module.o \
+TEST/SCD_30_module/test_SCD30_module.o
 
 OBJS_AS_ARGS +=  \
 HAL/RN2483/RN2483_HAL.o \
+HAL/TWI/TWI_HAL.o \
 HAL/UART0/UART0_HAL.o \
 HAL/UART1/UART1_HAL.o \
 main.o \
@@ -94,10 +101,12 @@ MODULES/lora_module/RN2483_protocol/RN2483_protocol.o \
 MODULES/lora_module/send_uplink/send_uplink.o \
 MODULES/lora_module/sleep_controller/sleep_controller.o \
 MODULES/lora_module/util/util.o \
-TEST/lora-module/test_lora_module.o
+TEST/lora-module/test_lora_module.o \
+TEST/SCD_30_module/test_SCD30_module.o
 
 C_DEPS +=  \
 HAL/RN2483/RN2483_HAL.d \
+HAL/TWI/TWI_HAL.d \
 HAL/UART0/UART0_HAL.d \
 HAL/UART1/UART1_HAL.d \
 main.d \
@@ -107,10 +116,12 @@ MODULES/lora_module/RN2483_protocol/RN2483_protocol.d \
 MODULES/lora_module/send_uplink/send_uplink.d \
 MODULES/lora_module/sleep_controller/sleep_controller.d \
 MODULES/lora_module/util/util.d \
-TEST/lora-module/test_lora_module.d
+TEST/lora-module/test_lora_module.d \
+TEST/SCD_30_module/test_SCD30_module.d
 
 C_DEPS_AS_ARGS +=  \
 HAL/RN2483/RN2483_HAL.d \
+HAL/TWI/TWI_HAL.d \
 HAL/UART0/UART0_HAL.d \
 HAL/UART1/UART1_HAL.d \
 main.d \
@@ -120,7 +131,8 @@ MODULES/lora_module/RN2483_protocol/RN2483_protocol.d \
 MODULES/lora_module/send_uplink/send_uplink.d \
 MODULES/lora_module/sleep_controller/sleep_controller.d \
 MODULES/lora_module/util/util.d \
-TEST/lora-module/test_lora_module.d
+TEST/lora-module/test_lora_module.d \
+TEST/SCD_30_module/test_SCD30_module.d
 
 OUTPUT_FILE_PATH +=methane_sensor_v0.elf
 
@@ -137,6 +149,13 @@ LINKER_SCRIPT_DEP+=
 
 # AVR32/GNU C Compiler
 HAL/RN2483/RN2483_HAL.o: ../HAL/RN2483/RN2483_HAL.c
+	@echo Building file: $<
+	@echo Invoking: XC8 C Compiler : 2.31
+	$(QUOTE)C:\Program Files\Microchip\xc8\v2.31\bin\xc8-cc.exe$(QUOTE)  -mcpu=ATmega328PB  -mdfp="C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\xc8"  -c -x c -funsigned-char -funsigned-bitfields -mext=cci -D__ATmega328PB__ -DDEBUG  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+HAL/TWI/TWI_HAL.o: ../HAL/TWI/TWI_HAL.c
 	@echo Building file: $<
 	@echo Invoking: XC8 C Compiler : 2.31
 	$(QUOTE)C:\Program Files\Microchip\xc8\v2.31\bin\xc8-cc.exe$(QUOTE)  -mcpu=ATmega328PB  -mdfp="C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\xc8"  -c -x c -funsigned-char -funsigned-bitfields -mext=cci -D__ATmega328PB__ -DDEBUG  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
@@ -207,6 +226,13 @@ MODULES/lora_module/util/util.o: ../MODULES/lora_module/util/util.c
 	
 
 TEST/lora-module/test_lora_module.o: ../TEST/lora-module/test_lora_module.c
+	@echo Building file: $<
+	@echo Invoking: XC8 C Compiler : 2.31
+	$(QUOTE)C:\Program Files\Microchip\xc8\v2.31\bin\xc8-cc.exe$(QUOTE)  -mcpu=ATmega328PB  -mdfp="C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\xc8"  -c -x c -funsigned-char -funsigned-bitfields -mext=cci -D__ATmega328PB__ -DDEBUG  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+TEST/SCD_30_module/test_SCD30_module.o: ../TEST/SCD_30_module/test_SCD30_module.c
 	@echo Building file: $<
 	@echo Invoking: XC8 C Compiler : 2.31
 	$(QUOTE)C:\Program Files\Microchip\xc8\v2.31\bin\xc8-cc.exe$(QUOTE)  -mcpu=ATmega328PB  -mdfp="C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\xc8"  -c -x c -funsigned-char -funsigned-bitfields -mext=cci -D__ATmega328PB__ -DDEBUG  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

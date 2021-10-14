@@ -4,6 +4,8 @@
 
 HAL\RN2483\RN2483_HAL.c
 
+HAL\TWI\TWI_HAL.c
+
 HAL\UART0\UART0_HAL.c
 
 HAL\UART1\UART1_HAL.c
@@ -23,4 +25,6 @@ MODULES\lora_module\sleep_controller\sleep_controller.c
 MODULES\lora_module\util\util.c
 
 TEST\lora-module\test_lora_module.c
+
+TEST\SCD_30_module\test_SCD30_module.c
 

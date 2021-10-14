@@ -14,4 +14,9 @@
 #define clear_bit(Port,Bit) (Port&=~(1<<Bit)) 
 #define toggle_bit(Port,Bit) (Port^=(1<<Bit)) 
 
+
+#define set_byte(Port, byte) (Port |= byte)
+#define clear_byte(Port, byte) (Port &= ~(byte))
+#define get_byte(Port, byte) (Port & byte)
+
 #endif /* BIT_OPERATORS_H_ */
