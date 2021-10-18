@@ -18,6 +18,8 @@ HAL\UART1\UART1_HAL.c
 
 main.c
 
+MODULES\EEPROM_module\EEPROM_module.c
+
 MODULES\lora_module\join_network\join_network.c
 
 MODULES\lora_module\lora_module.c
@@ -31,6 +33,8 @@ MODULES\lora_module\sleep_controller\sleep_controller.c
 MODULES\lora_module\util\util.c
 
 MODULES\SCD30_module\SCD30_module.c
+
+TEST\EEPROM_module\test_EEPROM_module.c
 
 TEST\lora-module\test_lora_module.c
 

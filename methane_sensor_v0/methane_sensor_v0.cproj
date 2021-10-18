@@ -157,6 +157,12 @@
     <Compile Include="main.c">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="MODULES\EEPROM_module\EEPROM_module.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MODULES\EEPROM_module\EEPROM_module.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="MODULES\lora_module\join_network\join_network.c">
       <SubType>compile</SubType>
     </Compile>
@@ -197,6 +203,12 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="MODULES\SCD30_module\SCD30_module.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="TEST\EEPROM_module\test_EEPROM_module.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="TEST\EEPROM_module\test_EEPROM_module.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="TEST\lora-module\test_lora_module.c">
@@ -246,9 +258,11 @@
     <Folder Include="MODULES\lora_module\send_uplink" />
     <Folder Include="MODULES\lora_module\util" />
     <Folder Include="MODULES\lora_module\RN2483_protocol" />
+    <Folder Include="MODULES\EEPROM_module" />
     <Folder Include="MODULES\SCD30_module" />
     <Folder Include="TEST" />
     <Folder Include="TEST\lora-module" />
+    <Folder Include="TEST\EEPROM_module" />
     <Folder Include="TEST\PM_HAL" />
     <Folder Include="TEST\SCD_30_module" />
     <Folder Include="util" />

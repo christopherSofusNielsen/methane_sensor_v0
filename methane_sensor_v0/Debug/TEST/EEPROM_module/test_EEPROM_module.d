@@ -1,4 +1,6 @@
-main.d main.o: .././main.c \
+TEST/EEPROM_module/test_EEPROM_module.d \
+ TEST/EEPROM_module/test_EEPROM_module.o: \
+ ../TEST/EEPROM_module/test_EEPROM_module.c \
  c:\program\ files\microchip\xc8\v2.31\avr\lib\gcc\avr\5.4.0\include\xc.h \
  c:\program\ files\microchip\xc8\v2.31\avr\lib\gcc\avr\5.4.0\include\cci.h \
  c:\program\ files\microchip\xc8\v2.31\avr\avr\include\avr\io.h \
@@ -12,10 +14,17 @@ main.d main.o: .././main.c \
  c:\program\ files\microchip\xc8\v2.31\avr\avr\include\avr\version.h \
  c:\program\ files\microchip\xc8\v2.31\avr\avr\include\avr\fuse.h \
  c:\program\ files\microchip\xc8\v2.31\avr\avr\include\avr\lock.h \
- .././TEST/lora-module/test_lora_module.h \
- .././TEST/SCD_30_module/test_SCD30_module.h \
- .././TEST/PM_HAL/test_PM_HAL.h \
- .././TEST/EEPROM_module/test_EEPROM_module.h
+ c:\program\ files\microchip\xc8\v2.31\avr\avr\include\util\delay.h \
+ c:\program\ files\microchip\xc8\v2.31\avr\avr\include\util\delay_basic.h \
+ c:\program\ files\microchip\xc8\v2.31\avr\avr\include\math.h \
+ c:\program\ files\microchip\xc8\v2.31\avr\avr\include\string.h \
+ c:\program\ files\microchip\xc8\v2.31\avr\lib\gcc\avr\5.4.0\include\stddef.h \
+ c:\program\ files\microchip\xc8\v2.31\avr\avr\include\stdio.h \
+ c:\program\ files\microchip\xc8\v2.31\avr\lib\gcc\avr\5.4.0\include\stdarg.h \
+ ../TEST/EEPROM_module/test_EEPROM_module.h \
+ ../TEST/EEPROM_module/../../HAL/UART0/UART0_HAL.h \
+ c:\program\ files\microchip\xc8\v2.31\avr\lib\gcc\avr\5.4.0\include\stdbool.h \
+ ../TEST/EEPROM_module/../../MODULES/EEPROM_module/EEPROM_module.h
 
 c:\program\ files\microchip\xc8\v2.31\avr\lib\gcc\avr\5.4.0\include\xc.h:
 
@@ -43,10 +52,24 @@ c:\program\ files\microchip\xc8\v2.31\avr\avr\include\avr\fuse.h:
 
 c:\program\ files\microchip\xc8\v2.31\avr\avr\include\avr\lock.h:
 
-.././TEST/lora-module/test_lora_module.h:
+c:\program\ files\microchip\xc8\v2.31\avr\avr\include\util\delay.h:
 
-.././TEST/SCD_30_module/test_SCD30_module.h:
+c:\program\ files\microchip\xc8\v2.31\avr\avr\include\util\delay_basic.h:
 
-.././TEST/PM_HAL/test_PM_HAL.h:
+c:\program\ files\microchip\xc8\v2.31\avr\avr\include\math.h:
 
-.././TEST/EEPROM_module/test_EEPROM_module.h:
+c:\program\ files\microchip\xc8\v2.31\avr\avr\include\string.h:
+
+c:\program\ files\microchip\xc8\v2.31\avr\lib\gcc\avr\5.4.0\include\stddef.h:
+
+c:\program\ files\microchip\xc8\v2.31\avr\avr\include\stdio.h:
+
+c:\program\ files\microchip\xc8\v2.31\avr\lib\gcc\avr\5.4.0\include\stdarg.h:
+
+../TEST/EEPROM_module/test_EEPROM_module.h:
+
+../TEST/EEPROM_module/../../HAL/UART0/UART0_HAL.h:
+
+c:\program\ files\microchip\xc8\v2.31\avr\lib\gcc\avr\5.4.0\include\stdbool.h:
+
+../TEST/EEPROM_module/../../MODULES/EEPROM_module/EEPROM_module.h:
