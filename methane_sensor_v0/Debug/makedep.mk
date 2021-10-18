@@ -18,6 +18,8 @@ HAL\UART1\UART1_HAL.c
 
 main.c
 
+MODULES\ADC_module\ADC_module.c
+
 MODULES\EEPROM_module\EEPROM_module.c
 
 MODULES\lora_module\join_network\join_network.c
@@ -34,11 +36,13 @@ MODULES\lora_module\util\util.c
 
 MODULES\SCD30_module\SCD30_module.c
 
+TEST\ADC_module\test_ADC_module.c
+
 TEST\EEPROM_module\test_EEPROM_module.c
 
 TEST\lora-module\test_lora_module.c
 
-TEST\SCD_30_module\test_SCD30_module.c
+TEST\SCD30_module\test_SCD30_module.c
 
 TEST\PM_HAL\test_PM_HAL.c
 

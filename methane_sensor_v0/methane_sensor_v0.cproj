@@ -157,6 +157,12 @@
     <Compile Include="main.c">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="MODULES\ADC_module\ADC_module.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MODULES\ADC_module\ADC_module.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="MODULES\EEPROM_module\EEPROM_module.c">
       <SubType>compile</SubType>
     </Compile>
@@ -205,6 +211,12 @@
     <Compile Include="MODULES\SCD30_module\SCD30_module.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="TEST\ADC_module\test_ADC_module.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="TEST\ADC_module\test_ADC_module.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="TEST\EEPROM_module\test_EEPROM_module.c">
       <SubType>compile</SubType>
     </Compile>
@@ -217,10 +229,10 @@
     <Compile Include="TEST\lora-module\test_lora_module.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="TEST\SCD_30_module\test_SCD30_module.c">
+    <Compile Include="TEST\SCD30_module\test_SCD30_module.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="TEST\SCD_30_module\test_SCD30_module.h">
+    <Compile Include="TEST\SCD30_module\test_SCD30_module.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="TEST\PM_HAL\test_PM_HAL.h">
@@ -259,12 +271,14 @@
     <Folder Include="MODULES\lora_module\util" />
     <Folder Include="MODULES\lora_module\RN2483_protocol" />
     <Folder Include="MODULES\EEPROM_module" />
+    <Folder Include="MODULES\ADC_module" />
     <Folder Include="MODULES\SCD30_module" />
     <Folder Include="TEST" />
     <Folder Include="TEST\lora-module" />
     <Folder Include="TEST\EEPROM_module" />
+    <Folder Include="TEST\ADC_module" />
     <Folder Include="TEST\PM_HAL" />
-    <Folder Include="TEST\SCD_30_module" />
+    <Folder Include="TEST\SCD30_module" />
     <Folder Include="util" />
     <Folder Include="util\CRC8" />
   </ItemGroup>
