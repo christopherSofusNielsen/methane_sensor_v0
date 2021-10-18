@@ -10,27 +10,120 @@
 
 #include <xc.h>
 #include <util/delay.h>
+#include <stdbool.h>
 
 
 
 #include "test_SCD30_module.h"
 #include "../../HAL/TWI/TWI_HAL.h"
 #include "../../HAL/UART0/UART0_HAL.h"
+#include "../../HAL/TWI/TWI_API.h"
+#include "../../MODULES/SCD30_module/SCD30_module.h"
 
 void test_HAL();
 void read_firmware();
+void read_firmware_api();
 void throw_error(uint8_t status, uint8_t index);
+void test_init();
+void test_get_reading();
+void test_data_ready();
+void read_measure_interval();
 
 void test_SCD30_module_start(){
-	uart0_hal_init();
-	
+		uart0_hal_init();
+		test_init();
+		
 		while(1){
 			//test_HAL();
-			read_firmware();
-			_delay_ms(3000);
+			//read_firmware();
+			//read_firmware_api();
+			
+			test_get_reading();
+			//test_data_ready();
+			
+			//read_measure_interval();
+		
+			_delay_ms(1500);
 		}
 	
 	
+}
+const  uint8_t _SET_MEASUREMENT_INTERVAL[]={0x46, 0x00, 0x00, 0x09, 0x09};
+void read_measure_interval(){
+	uint8_t write[]={0x46, 0x00};
+	uint8_t data[3];
+	
+	
+	
+	TWI_API_write_data_stop(0x61, _SET_MEASUREMENT_INTERVAL, 5);
+	_delay_ms(10);
+	
+	TWI_API_write_data_stop(0x61, write, 2);
+	_delay_ms(10);
+	
+	TWI_API_read_data_ack_end_nack_stop(0x61, data, 3);
+	
+	uart0_hal_send_message(data, 3);
+	
+}
+
+void test_data_ready(){
+	bool ready=SCD30_data_ready();
+	if(ready==true){
+		char msg[]="OK";
+		uart0_hal_send_message((uint8_t*)msg, 3);
+	}else{
+		char msg[]="FAIL";
+		uart0_hal_send_message((uint8_t*)msg, 5);
+	}
+}
+
+void test_init(){
+		SCD30_STATUS status=SCD30_init(2);
+		if(status==SCD30_STATUS_SUCCESS){
+			char msg[]="OK";
+			uart0_hal_send_message((uint8_t*)msg, 3);
+		}else if(status==SCD30_STATUS_TRY_AGAIN){
+			char msg[]="TRY";
+			uart0_hal_send_message((uint8_t*)msg, 4);
+		}else{
+			char msg[]="FAIL";
+			uart0_hal_send_message((uint8_t*)msg, 5);
+		}
+}
+
+void test_get_reading(){
+	char data[20];
+	uint16_t value;
+	
+	SCD30_STATUS status=SCD30_get_reading(&value);
+	if(status==SCD30_STATUS_SUCCESS){
+		sprintf(data, "%u ", value);
+		uart0_hal_send_message(data, strlen(data));
+	}else if(status==SCD30_STATUS_TRY_AGAIN){
+		char msg[]={0xEE, 0xEE};
+		uart0_hal_send_message((uint8_t*)msg, 2);
+	}else{
+		char msg[]={0xFF, 0xFF};
+		uart0_hal_send_message((uint8_t*)msg, 2);
+	}
+}
+
+void read_firmware_api(){
+	uint8_t status;
+	uint8_t write[]={0xD1, 0x00};
+	uint8_t read[3];
+	TWI_HAL_init();
+	status=TWI_API_write_data_stop(0x61, write, 2);
+	if(status!=TWI_CODE_SUCCESS)
+		return throw_error(status, 0);
+	_delay_ms(3);
+	
+	status=TWI_API_read_data_ack_end_nack_stop(0x61, read, 3);
+	if(status!=TWI_CODE_SUCCESS)
+		return throw_error(status, 1);
+	
+	uart0_hal_send_message(read, 3);
 }
 
 void read_firmware(){
@@ -40,22 +133,22 @@ void read_firmware(){
 	TWI_HAL_init();
 	
 	status=TWI_HAL_start(0x61, WRITE);
-	if(status!=1) 
+	if(status!=TWI_CODE_SUCCESS) 
 		return throw_error(status, 0);
 		
 	status=TWI_HAL_write_byte(0xD1);
-	if(status!=1)
+	if(status!=TWI_CODE_SUCCESS)
 		return throw_error(status, 1);
 		
 	status=TWI_HAL_write_byte(0x00);
-	if(status!=1)
+	if(status!=TWI_CODE_SUCCESS)
 		return throw_error(status, 2);
 		
 	TWI_HAL_stop();
 	_delay_ms(5);
 	
 	status=TWI_HAL_start(0x61, READ);
-	if(status!=1)
+	if(status!=TWI_CODE_SUCCESS)
 		return throw_error(status, 3);
 		
 	data[0]=TWI_HAL_read_byte_ack();

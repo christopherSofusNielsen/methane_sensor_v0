@@ -112,10 +112,28 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="HAL\PM\PM_HAL.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\PM\PM_HAL.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="HAL\RN2483\RN2483_HAL.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="HAL\RN2483\RN2483_HAL.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\SCD30\SCD30_HAL.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\SCD30\SCD30_HAL.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\TWI\TWI_API.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\TWI\TWI_API.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="HAL\TWI\TWI_HAL.c">
@@ -175,6 +193,12 @@
     <Compile Include="MODULES\lora_module\util\util.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="MODULES\SCD30_module\SCD30_module.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MODULES\SCD30_module\SCD30_module.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="TEST\lora-module\test_lora_module.c">
       <SubType>compile</SubType>
     </Compile>
@@ -187,12 +211,30 @@
     <Compile Include="TEST\SCD_30_module\test_SCD30_module.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="TEST\PM_HAL\test_PM_HAL.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="TEST\PM_HAL\test_PM_HAL.c">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="util\bit_operators.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="util\CRC8\CRC8.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="util\CRC8\CRC8.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="util\to_float.h">
       <SubType>compile</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="HAL" />
+    <Folder Include="HAL\PM" />
+    <Folder Include="HAL\TC1" />
+    <Folder Include="HAL\SCD30" />
     <Folder Include="HAL\TWI" />
     <Folder Include="HAL\RN2483" />
     <Folder Include="HAL\UART1" />
@@ -204,10 +246,13 @@
     <Folder Include="MODULES\lora_module\send_uplink" />
     <Folder Include="MODULES\lora_module\util" />
     <Folder Include="MODULES\lora_module\RN2483_protocol" />
+    <Folder Include="MODULES\SCD30_module" />
     <Folder Include="TEST" />
     <Folder Include="TEST\lora-module" />
+    <Folder Include="TEST\PM_HAL" />
     <Folder Include="TEST\SCD_30_module" />
     <Folder Include="util" />
+    <Folder Include="util\CRC8" />
   </ItemGroup>
   <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
 </Project>

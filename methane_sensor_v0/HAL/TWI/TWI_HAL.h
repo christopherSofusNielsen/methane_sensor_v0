@@ -22,6 +22,8 @@ typedef enum {
 
 #define  TWI_TWBR ((F_CPU/F_SCL)-16)*(float)(1.0/(2*TWI_PRESCALE))
 
+#define TWI_CODE_SUCCESS 0x00
+
 
 void TWI_HAL_init();
 uint8_t TWI_HAL_start(uint8_t addr, TWI_HAL_START_TYPE type);
@@ -29,6 +31,7 @@ uint8_t TWI_HAL_write_byte(uint8_t data);
 uint8_t TWI_HAL_read_byte_ack();
 uint8_t TWI_HAL_read_byte_nack();
 void TWI_HAL_stop();
+
 
 
 

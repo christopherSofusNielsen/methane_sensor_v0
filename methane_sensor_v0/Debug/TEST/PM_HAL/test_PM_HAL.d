@@ -1,4 +1,5 @@
-main.d main.o: .././main.c \
+TEST/PM_HAL/test_PM_HAL.d TEST/PM_HAL/test_PM_HAL.o: \
+ ../TEST/PM_HAL/test_PM_HAL.c \
  c:\program\ files\microchip\xc8\v2.31\avr\lib\gcc\avr\5.4.0\include\xc.h \
  c:\program\ files\microchip\xc8\v2.31\avr\lib\gcc\avr\5.4.0\include\cci.h \
  c:\program\ files\microchip\xc8\v2.31\avr\avr\include\avr\io.h \
@@ -12,9 +13,14 @@ main.d main.o: .././main.c \
  c:\program\ files\microchip\xc8\v2.31\avr\avr\include\avr\version.h \
  c:\program\ files\microchip\xc8\v2.31\avr\avr\include\avr\fuse.h \
  c:\program\ files\microchip\xc8\v2.31\avr\avr\include\avr\lock.h \
- .././TEST/lora-module/test_lora_module.h \
- .././TEST/SCD_30_module/test_SCD30_module.h \
- .././TEST/PM_HAL/test_PM_HAL.h
+ c:\program\ files\microchip\xc8\v2.31\avr\avr\include\util\delay.h \
+ c:\program\ files\microchip\xc8\v2.31\avr\avr\include\util\delay_basic.h \
+ c:\program\ files\microchip\xc8\v2.31\avr\avr\include\math.h \
+ c:\program\ files\microchip\xc8\v2.31\avr\avr\include\string.h \
+ c:\program\ files\microchip\xc8\v2.31\avr\lib\gcc\avr\5.4.0\include\stddef.h \
+ ../TEST/PM_HAL/test_PM_HAL.h ../TEST/PM_HAL/../../HAL/PM/PM_HAL.h \
+ ../TEST/PM_HAL/../../HAL/UART0/UART0_HAL.h \
+ c:\program\ files\microchip\xc8\v2.31\avr\lib\gcc\avr\5.4.0\include\stdbool.h
 
 c:\program\ files\microchip\xc8\v2.31\avr\lib\gcc\avr\5.4.0\include\xc.h:
 
@@ -42,8 +48,20 @@ c:\program\ files\microchip\xc8\v2.31\avr\avr\include\avr\fuse.h:
 
 c:\program\ files\microchip\xc8\v2.31\avr\avr\include\avr\lock.h:
 
-.././TEST/lora-module/test_lora_module.h:
+c:\program\ files\microchip\xc8\v2.31\avr\avr\include\util\delay.h:
 
-.././TEST/SCD_30_module/test_SCD30_module.h:
+c:\program\ files\microchip\xc8\v2.31\avr\avr\include\util\delay_basic.h:
 
-.././TEST/PM_HAL/test_PM_HAL.h:
+c:\program\ files\microchip\xc8\v2.31\avr\avr\include\math.h:
+
+c:\program\ files\microchip\xc8\v2.31\avr\avr\include\string.h:
+
+c:\program\ files\microchip\xc8\v2.31\avr\lib\gcc\avr\5.4.0\include\stddef.h:
+
+../TEST/PM_HAL/test_PM_HAL.h:
+
+../TEST/PM_HAL/../../HAL/PM/PM_HAL.h:
+
+../TEST/PM_HAL/../../HAL/UART0/UART0_HAL.h:
+
+c:\program\ files\microchip\xc8\v2.31\avr\lib\gcc\avr\5.4.0\include\stdbool.h:

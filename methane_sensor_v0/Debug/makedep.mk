@@ -2,7 +2,13 @@
 # Automatically-generated file. Do not edit or delete the file
 ################################################################################
 
+HAL\PM\PM_HAL.c
+
 HAL\RN2483\RN2483_HAL.c
+
+HAL\SCD30\SCD30_HAL.c
+
+HAL\TWI\TWI_API.c
 
 HAL\TWI\TWI_HAL.c
 
@@ -24,7 +30,13 @@ MODULES\lora_module\sleep_controller\sleep_controller.c
 
 MODULES\lora_module\util\util.c
 
+MODULES\SCD30_module\SCD30_module.c
+
 TEST\lora-module\test_lora_module.c
 
 TEST\SCD_30_module\test_SCD30_module.c
+
+TEST\PM_HAL\test_PM_HAL.c
+
+util\CRC8\CRC8.c
 

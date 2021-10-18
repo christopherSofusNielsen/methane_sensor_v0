@@ -1,4 +1,6 @@
-main.d main.o: .././main.c \
+HAL/SCD30/SCD30_HAL.d HAL/SCD30/SCD30_HAL.o: ../HAL/SCD30/SCD30_HAL.c \
+ ../HAL/SCD30/SCD30_HAL.h \
+ c:\program\ files\microchip\xc8\v2.31\avr\lib\gcc\avr\5.4.0\include\stdbool.h \
  c:\program\ files\microchip\xc8\v2.31\avr\lib\gcc\avr\5.4.0\include\xc.h \
  c:\program\ files\microchip\xc8\v2.31\avr\lib\gcc\avr\5.4.0\include\cci.h \
  c:\program\ files\microchip\xc8\v2.31\avr\avr\include\avr\io.h \
@@ -12,9 +14,11 @@ main.d main.o: .././main.c \
  c:\program\ files\microchip\xc8\v2.31\avr\avr\include\avr\version.h \
  c:\program\ files\microchip\xc8\v2.31\avr\avr\include\avr\fuse.h \
  c:\program\ files\microchip\xc8\v2.31\avr\avr\include\avr\lock.h \
- .././TEST/lora-module/test_lora_module.h \
- .././TEST/SCD_30_module/test_SCD30_module.h \
- .././TEST/PM_HAL/test_PM_HAL.h
+ ../HAL/SCD30/../../util/bit_operators.h
+
+../HAL/SCD30/SCD30_HAL.h:
+
+c:\program\ files\microchip\xc8\v2.31\avr\lib\gcc\avr\5.4.0\include\stdbool.h:
 
 c:\program\ files\microchip\xc8\v2.31\avr\lib\gcc\avr\5.4.0\include\xc.h:
 
@@ -42,8 +46,4 @@ c:\program\ files\microchip\xc8\v2.31\avr\avr\include\avr\fuse.h:
 
 c:\program\ files\microchip\xc8\v2.31\avr\avr\include\avr\lock.h:
 
-.././TEST/lora-module/test_lora_module.h:
-
-.././TEST/SCD_30_module/test_SCD30_module.h:
-
-.././TEST/PM_HAL/test_PM_HAL.h:
+../HAL/SCD30/../../util/bit_operators.h:
